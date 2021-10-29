@@ -28,14 +28,12 @@ const ServiceDetails = () => {
 
     const title = serviceDetails.hasOwnProperty('title') ? serviceDetails.title : null;
     const image = serviceDetails.hasOwnProperty('image') ? serviceDetails.image : null;
-
     const description = serviceDetails.hasOwnProperty('description') ? serviceDetails.description : null;
 
 
     return (
         <div>
             <Container>
-
 
                 <Row className="g-4 mt-4">
                     <Col xs={12} md={5}>
@@ -49,8 +47,8 @@ const ServiceDetails = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-
                 </Row>
+
             </Container>
         </div>
     );
