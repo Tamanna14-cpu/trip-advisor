@@ -1,5 +1,6 @@
 .banner{
     background-image: url('../../../images/banner.webp');
+    background-color: #FDC735;
     background-repeat: no-repeat;
     background-size: cover;
    height: 400px;

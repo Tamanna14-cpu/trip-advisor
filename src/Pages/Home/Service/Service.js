@@ -1,19 +1,33 @@
 import React from 'react';
+import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
 
-    const { title, image, fee } = service;
+    const { _id, title, image, fee } = service;
 
     return (
-        <div className="service pb-3">
-            <img src={image} alt="" />
-            <h3>{title}</h3>
-            <h5>Price: {fee}</h5>
+        <>
+            <Col>
+                <Card className="card-height service-card" data-aos="fade-up">
+                    <Card.Img variant="top" className="course-img" src={image} />
+                    <Card.Body>
 
-            {/* <Link to={`/booking/${_id}`}>
-                <button className="btn btn-warning">Book {name.toLowerCase()}</button>
-            </Link> */}
-        </div>
+                        <Card.Title>
+                            {title}
+                        </Card.Title>
+
+                        <Card.Text>
+                            from ${fee}/night
+                        </Card.Text>
+                    </Card.Body>
+
+                    <Link to={`/services/${_id}`} className="see-btn mb-4">
+                        <button type="button" className="btn btn-outline-secondary ">Book Now</button>
+                    </Link>
+                </Card>
+            </Col>
+        </>
     );
 };
 
