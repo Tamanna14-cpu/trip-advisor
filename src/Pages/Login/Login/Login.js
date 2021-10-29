@@ -1,7 +1,7 @@
 // import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile, } from "firebase/auth";
 // import { useState } from "react";
 import React from 'react';
-// import './Login.css';
+import './Login.css';
 import { useHistory, useLocation } from "react-router";
 import { Container } from "react-bootstrap";
 import useAuth from '../../../Hooks/useAuth';
@@ -155,9 +155,10 @@ const Login = () => {
     return (
 
         <Container>
-            <div>
-                <button onClick={handleGoogleLogin}>Sign In with Google</button>
-                <button onClick={handleGithubLogin}>Sign In with Github</button>
+            <div className="login">
+                <button onClick={handleGoogleLogin} className="btn btn-outline-secondary btn-lg py-3 mb-4" type="submit"><i className="fab fa-google me-3"></i>Sign In with Google</button>
+                <br />
+                <button onClick={handleGithubLogin} className="btn btn-outline-secondary btn-lg py-3" type="submit"><i className="fab fa-github me-3"></i>Sign In with Github</button>
             </div>
         </Container>
 
