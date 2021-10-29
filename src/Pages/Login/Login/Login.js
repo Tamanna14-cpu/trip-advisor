@@ -155,7 +155,10 @@ const Login = () => {
     return (
 
         <Container>
-            <h1>it is container</h1>
+            <div>
+                <button onClick={handleGoogleLogin}>Sign In with Google</button>
+                <button onClick={handleGithubLogin}>Sign In with Github</button>
+            </div>
         </Container>
 
     )

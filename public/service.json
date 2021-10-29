@@ -1,0 +1,66 @@
+[
+    {
+        "id": "101",
+        "title": "The Meritage Resort and Spa",
+        "image": "https://i.ibb.co/5vw6r7d/caption.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views.",
+        "review": 4.5,
+        "fee": 500
+    },
+    {
+        "id": "102",
+        "title": "The Westin Verasa Napa",
+        "image": "https://i.ibb.co/3pSWLjL/4f.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 3,
+        "fee": 800
+    },
+    {
+        "id": "103",
+        "title": "Napa Valley Marriott Hotel & Spa",
+        "image": "https://i.ibb.co/X58KtNN/the-william-vale.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 3.5,
+        "fee": 740
+    },
+    {
+        "id": "104",
+        "title": "Portola Hotel & Spa at Monterey Bay",
+        "image": "https://i.ibb.co/9wsX5ff/the-meritage-resort-and.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 4.5,
+        "fee": 625
+    },
+    {
+        "id": "105",
+        "title": "Monterey Bay Inn",
+        "image": "https://i.ibb.co/Y3Y7k67/shelborne-south-beach.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 4,
+        "fee": 395
+    },
+    {
+        "id": "106",
+        "title": "InterContinental The Clement Monterey",
+        "image": "https://i.ibb.co/BKVFtr9/caption.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 4.5,
+        "fee": 530
+    },
+    {
+        "id": "107",
+        "title": "Hotel Abrego",
+        "image": "https://i.ibb.co/DrT8Zcn/caption-2.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 5,
+        "fee": 630
+    },
+    {
+        "id": "108",
+        "title": "Casa Munras Garden Hotel & Spa",
+        "image": "https://i.ibb.co/yfbjrzz/caption-1.jpg",
+        "description": "Acres of sun-soaked hillside vineyards. Beautiful accommodations paired with luxurious amenities. Indulgent spa treatments in the serenity of an underground Estate Cave. And the best of Napa Valley’s legendary wineries only moments away. The Meritage Resort and Spa blends relaxed elegance with warm hospitality to bring you the ultimate Napa Valley resort experience. Highlights include: • 322 guestrooms, suites and luxury retreats • 80,000 square feet of indoor and outdoor event space • Private nine-acre vineyard with walking trails • World-class spa • Crush Lounge with six lanes of bowling • Pool, hot tub and fitness center with stunning vineyard views",
+        "review": 3.5,
+        "fee": 430
+    }
+]
