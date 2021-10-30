@@ -1,0 +1,22 @@
+.service-card{
+    border: none !important;  
+}
+
+.service-img{
+    height: 300px;
+}
+
+.service-btn:hover{
+   background-color: #2bc78e !important;
+}
+
+.service-card:hover .service-img{
+    filter: brightness(80%)
+}
+
+
+.fa-circle{
+    color: #2bc78e;
+    font-size: 14px;
+    margin-left: 2px;
+}

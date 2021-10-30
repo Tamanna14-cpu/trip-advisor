@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import useAuth from '../../Hooks/useAuth';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import SweetAlert from 'sweetalert-react';
 
 
 
@@ -43,7 +44,12 @@ const ServiceDetails = () => {
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
-                    alert('added successfully');
+                    <SweetAlert
+                        // show={this.state.show}
+                        title="Demo"
+                        text="SweetAlert in React"
+                    // onConfirm={() => this.setState({ show: false })}
+                    />
 
                 }
             })

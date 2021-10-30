@@ -18,9 +18,11 @@ const Rentals = () => {
         <Container>
             <Row className="g-4 my-5 pb-5">
                 <Col xs={12} md={4}>
-                    <h2>Home Rentals Near You</h2>
+                    <h4 className="fw-bold">Home Rentals Near You<i className="fas fa-search-location ms-3"></i></h4>
                     <br />
-                    <h5>We think you'd enjoy these homes for a quick trip out of town.</h5>
+                    <h6 className="text-muted">We think you'd enjoy these homes for a quick trip out of town.Renting a home can be an ideal option for those wanting extra flexibility and less responsibility. ... With renting, you're not tied to the property long-term, and you're also less responsible for saving for repairs, paying for taxes and insurance, and keeping up with other expenses.</h6>
+                    <br />
+                    <button type="button" className="btn btn-outline-secondary">View More<i className="fas fa-angle-double-right ms-3"></i></button>
                 </Col>
                 <Col xs={12} md={8}>
                     <Carousel>

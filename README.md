@@ -10,6 +10,8 @@ have a look here - https://my-app-bcb15.web.app/
 * React-Router
 * React reveal
 * React Typist
+* React Rating
+* Sweetalert react- for modal
 * Fontawesome
 * Google-font
 * Firebase-authentication system!
