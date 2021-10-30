@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import './AddService.css';
 
 
+
 const AddService = () => {
 
 
@@ -15,7 +16,7 @@ const AddService = () => {
         axios.post('https://safe-island-53802.herokuapp.com/addService', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('added successfully');
+
                     reset();
                 }
             })

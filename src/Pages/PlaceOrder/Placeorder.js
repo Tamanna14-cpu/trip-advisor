@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Container, Card, Col, Row } from 'react-bootstrap';
+import { Container, Card, Col, Row, Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import useAuth from '../../Hooks/useAuth';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import SweetAlert from 'sweetalert-react';
-
+import useAuth from '../../Hooks/useAuth';
 
 
 const ServiceDetails = () => {
 
     const { user } = useAuth();
+    const { displayName, email } = user;
+
 
     const { serviceId } = useParams();
     // console.log(serviceId)
@@ -29,8 +29,7 @@ const ServiceDetails = () => {
         callApi();
     }, [serviceId])
 
-    const { image, title, description, fee } = serviceDetails;
-
+    const { image, title, description } = serviceDetails;
 
 
     // react hook form
@@ -38,18 +37,15 @@ const ServiceDetails = () => {
 
     const onSubmit = data => {
         data.status = "pending";
-        console.log(data)
+        console.log("satus", data)
 
         axios.post('https://safe-island-53802.herokuapp.com/manageOrders', data)
             .then(res => {
-                console.log(res.data);
+                console.log("amar data", res.data);
+                reset(res.data);
                 if (res.data.insertedId) {
-                    <SweetAlert
-                        // show={this.state.show}
-                        title="Demo"
-                        text="SweetAlert in React"
-                    // onConfirm={() => this.setState({ show: false })}
-                    />
+                    alert("added")
+
 
                 }
             })
@@ -70,18 +66,14 @@ const ServiceDetails = () => {
                     <Col xs={12} md={6} className="add-service">
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input {...register("title")} value={title} />
-                            <input type="number" {...register("price")} value={fee} />
+                            <input {...register("title")} />
+                            <input type="number" {...register("price")} />
 
-                            {user?.email ?
-                                <input type="text" {...register("name")} value={user.displayName} />
-                                : <input type="text" />
-                            }
 
-                            {user?.email ?
-                                <input type="email" {...register("email")} value={user.email} />
-                                : <input type="text" />
-                            }
+                            <input type="text" {...register("name")} defaultValue={displayName} />
+
+                            <input type="email" {...register("email")} defaultValue={email} />
+
 
                             <textarea {...register("description")} placeholder="description" />
 
