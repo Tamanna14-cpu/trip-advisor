@@ -36,7 +36,8 @@ const ServiceDetails = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        // console.log(data)
+        data.status = "pending";
+        console.log(data)
 
         axios.post('https://safe-island-53802.herokuapp.com/manageOrders', data)
             .then(res => {

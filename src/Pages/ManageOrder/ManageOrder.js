@@ -4,12 +4,50 @@ import { Container } from 'react-bootstrap';
 const ManageOrder = () => {
 
     const [manageOrders, setManageOrders] = useState([]);
+    const [isDelete, setIsDelete] = useState(null);
+
+
 
     useEffect(() => {
         fetch(`https://safe-island-53802.herokuapp.com/manageOrders`)
             .then((res) => res.json())
             .then((data) => setManageOrders(data));
-    }, []);
+    }, [isDelete]);
+
+
+    const handlePending = (id) => {
+        // console.log(id);
+
+
+
+    }
+
+
+    const handleDeleteProduct = (id) => {
+        // console.log(id);
+        const proceed = window.confirm('Are you sure, you want to delete?');
+
+        if (proceed) {
+            fetch(`https://safe-island-53802.herokuapp.com/deleteProduct/${id}`, {
+                method: "DELETE",
+
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    if (result.deletedCount) {
+                        alert("deleted successfully")
+                        const remainingUsers = manageOrders.filter(order => order._id !== id);
+                        setManageOrders(remainingUsers);
+                        setIsDelete(true);
+                    } else {
+                        setIsDelete(false);
+                    }
+                });
+        }
+
+
+
+    };
 
 
     return (
@@ -20,12 +58,13 @@ const ManageOrder = () => {
             <div className="all-products mt-5">
                 <div className="row container text-center">
                     {manageOrders?.map((pd) => (
-                        <div className="col-md-6 col-lg-4">
+                        <div key={pd._id} className="col-md-6 col-lg-4">
                             <div className=" border border p-2 m-2">
                                 <h5>{pd.title}</h5>
                                 <h6>{pd?.fee}</h6>
                                 <p>{pd.email}</p>
-                                <button className="btn btn-danger m-2">delete</button>
+                                <button onClick={() => handlePending(pd._id)} className="btn btn-danger m-2">{pd.status}</button>
+                                <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
                             </div>
                         </div>
                     ))}
