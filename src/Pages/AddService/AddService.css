@@ -3,9 +3,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: none;
+    border-radius:  15px;
 }
 
 .add-service form input, textarea{
-    width: 50%;
+    width: 55%;
     margin-bottom: 25px;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+
+
+.new-service{
+    color: #2bc78e;
+    font-weight: bold;
 }

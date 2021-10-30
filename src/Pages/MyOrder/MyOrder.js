@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import swal from 'sweetalert';
 import useAuth from '../../Hooks/useAuth';
 
 const MyOrder = () => {
@@ -29,7 +30,7 @@ const MyOrder = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.deletedCount) {
-                    alert("do you want to delete?")
+                    swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
                     setIsDelete(true);
                 } else {
                     setIsDelete(false);

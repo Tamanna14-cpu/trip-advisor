@@ -11,7 +11,7 @@ have a look here - https://my-app-bcb15.web.app/
 * React reveal
 * React Typist
 * React Rating
-* Sweetalert react- for modal
+* Sweetalert - for modal
 * Fontawesome
 * Google-font
 * Firebase-authentication system!

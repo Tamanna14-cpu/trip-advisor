@@ -27,14 +27,16 @@ const AddService = () => {
 
 
     return (
-        <div className="container add-service">
-            <h2>Please Add a Service</h2>
+        <div className="container add-service mt-5 shadow-lg">
+            <h2 className="py-5">You can add a <span className="new-service">New service!</span></h2>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="pb-5">
                 <input {...register("name", { required: true })} placeholder="name" />
-                <textarea {...register("description")} placeholder="description" />
+                <textarea {...register("description", { required: true })} placeholder="description" />
+                <br />
                 <input type="number" {...register("price")} placeholder="price" />
-                <input {...register("img")} placeholder="img-url" />
+
+                <input {...register("img", { required: true })} placeholder="img-url" />
                 <input type="submit" />
             </form>
 

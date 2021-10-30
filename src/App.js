@@ -14,7 +14,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import AddService from './Pages/AddService/AddService';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import ManageOrder from './Pages/ManageOrder/ManageOrder';
-import Placeorder from './Pages/PlaceOrder/Placeorder';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
             </PrivateRoute>
 
             <PrivateRoute path="/placeOrder/:serviceId">
-              <Placeorder></Placeorder>
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
 
 

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Container, Card, Col, Row, Modal, Button } from 'react-bootstrap';
+import { Container, Card, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
+import swal from 'sweetalert';
+import './PlaceOrder.css';
 
 
-const ServiceDetails = () => {
+const PlaceOrder = () => {
 
     const { user } = useAuth();
     const { displayName, email } = user;
@@ -42,10 +44,9 @@ const ServiceDetails = () => {
         axios.post('https://safe-island-53802.herokuapp.com/manageOrders', data)
             .then(res => {
                 console.log("amar data", res.data);
-                reset(res.data);
                 if (res.data.insertedId) {
-                    alert("added")
-
+                    swal("Good job!", "You have booked the service!", "success");
+                    reset();
 
                 }
             })
@@ -58,47 +59,46 @@ const ServiceDetails = () => {
 
 
     return (
-        <div>
-            <Container>
 
-                <Row className="g-4 mt-4">
-
-                    <Col xs={12} md={6} className="add-service">
-                        <form onSubmit={handleSubmit(onSubmit)}>
-
-                            <input {...register("title")} />
-                            <input type="number" {...register("price")} />
+        <Container className="mt-5">
+            <h2 className="py-3">Place Your Order Today</h2>
 
 
-                            <input type="text" {...register("name")} defaultValue={displayName} />
+            <Row className="g-4 mt-4">
 
-                            <input type="email" {...register("email")} defaultValue={email} />
+                <Col xs={12} md={6} className="add-service">
 
+                    <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <textarea {...register("description")} placeholder="description" />
+                        <input {...register("title", { required: true })} placeholder="title" />
+                        <input type="number" {...register("price", { required: true })} placeholder="price" />
 
-                            <br />
-                            <input type="submit" value="Book Now" />
-                        </form>
+                        <input type="text" {...register("name")} defaultValue={displayName} />
 
-                    </Col>
+                        <input type="email" {...register("email")} defaultValue={email} />
 
-                    <Col xs={12} md={5}>
-                        <Card className="card-height">
-                            <Card.Img variant="top" className="course-img" src={image} />
-                            <Card.Body>
-                                <Card.Title>{title}</Card.Title>
-                                <Card.Text>
-                                    <div>{description}</div>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                        <textarea {...register("description")} placeholder="description" />
 
-            </Container>
-        </div>
+                        <br />
+                        <input type="submit" value="Book Now" />
+                    </form>
+
+                </Col>
+
+                <Col xs={12} md={5}>
+                    <Card className="card-height">
+                        <Card.Img className="placeorder-img" variant="top" src={image} />
+                        <Card.Body>
+                            <Card.Title>{title}</Card.Title>
+                            <Card.Text>
+                                <div>{description}</div>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
-export default ServiceDetails;
+export default PlaceOrder;

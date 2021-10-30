@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 const ManageOrder = () => {
 
@@ -35,7 +36,7 @@ const ManageOrder = () => {
                 .then((res) => res.json())
                 .then((result) => {
                     if (result.deletedCount) {
-                        alert("deleted successfully")
+                        swal("Deleted successfully", "You clicked the button!", "info");
                         const remainingUsers = manageOrders.filter(order => order._id !== id);
                         setManageOrders(remainingUsers);
                         setIsDelete(true);
@@ -61,7 +62,7 @@ const ManageOrder = () => {
                         <div key={pd._id} className="col-md-6 col-lg-4">
                             <div className=" border border p-2 m-2">
                                 <h5>{pd.title}</h5>
-                                <h6>{pd?.fee}</h6>
+                                <h6>{pd.price}</h6>
                                 <p>{pd.email}</p>
                                 <button onClick={() => handlePending(pd._id)} className="btn btn-danger m-2">{pd.status}</button>
                                 <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
@@ -75,3 +76,6 @@ const ManageOrder = () => {
 };
 
 export default ManageOrder;
+
+
+window.confirm('Are you sure, you want to delete?')
