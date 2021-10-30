@@ -12,9 +12,9 @@ import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import AddService from './Pages/AddService/AddService';
-import SingleService from './Pages/SingleService/SingleService';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import ManageOrder from './Pages/ManageOrder/ManageOrder';
+import Placeorder from './Pages/PlaceOrder/Placeorder';
 
 
 function App() {
@@ -32,9 +32,6 @@ function App() {
               <Home />
             </Route>
 
-            <PrivateRoute path="/services/:serviceId">
-              <SingleService></SingleService>
-            </PrivateRoute>
 
             <PrivateRoute path="/addService">
               <AddService></AddService>
@@ -46,6 +43,10 @@ function App() {
 
             <PrivateRoute path="/manage">
               <ManageOrder></ManageOrder>
+            </PrivateRoute>
+
+            <PrivateRoute path="/placeOrder/:serviceId">
+              <Placeorder></Placeorder>
             </PrivateRoute>
 
 
