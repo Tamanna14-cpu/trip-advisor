@@ -9,7 +9,6 @@ const ManageOrder = () => {
     const [isDelete, setIsDelete] = useState(null);
 
 
-
     useEffect(() => {
         fetch(`https://safe-island-53802.herokuapp.com/manageOrders`)
             .then((res) => res.json())
@@ -22,9 +21,22 @@ const ManageOrder = () => {
     const handlePending = (id) => {
         // console.log(id);
 
-
-
+        fetch(`https://safe-island-53802.herokuapp.com/manageOrders/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(manageOrders)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedcount > 0) {
+                    alert('updated successfully')
+                    setManageOrders({});
+                }
+            })
     }
+
 
 
     // for delete
@@ -63,8 +75,8 @@ const ManageOrder = () => {
                                     <h5>{pd.title}</h5>
                                     <h6>{pd.price}</h6>
                                     <p>{pd.email}</p>
-                                    <button onClick={() => handlePending(pd._id)} className="btn btn-danger m-2">{pd.status}</button>
-                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
+                                    <button onClick={() => handlePending(pd._id)} className="btn btn-info m-2">{pd.status}</button>
+                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
                                 </div>
                             </div>
                         ))}

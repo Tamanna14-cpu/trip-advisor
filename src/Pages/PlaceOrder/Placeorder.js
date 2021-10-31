@@ -41,12 +41,12 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        data.status = "pending";
+        data.status = "Pending";
         console.log("satus", data)
 
         axios.post('https://safe-island-53802.herokuapp.com/manageOrders', data)
             .then(res => {
-                console.log("amar data", res.data);
+                // console.log("amar data", res.data);
                 if (res.data.insertedId) {
                     swal("Good job!", "You have booked the service!", "success");
                     reset();
