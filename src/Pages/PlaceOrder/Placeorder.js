@@ -24,7 +24,6 @@ const PlaceOrder = () => {
     const [serviceDetails, setServiceDetails] = useState([]);
 
     useEffect(() => {
-
         async function callApi() {
             const res = await fetch(`https://safe-island-53802.herokuapp.com/services/${serviceId}`);
             const data = await res.json();
@@ -35,6 +34,7 @@ const PlaceOrder = () => {
     }, [serviceId])
 
     const { image, title, description } = serviceDetails;
+
 
 
     // react hook form
@@ -82,8 +82,8 @@ const PlaceOrder = () => {
                     <Fade left>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input {...register("title", { required: true })} placeholder="service name" />
-                            <input type="number" {...register("price", { required: true })} placeholder="price" />
+                            <input {...register("title", { required: true })} defaultValue={title} />
+                            <input type="number" {...register("price", { required: true })} />
 
                             <input type="text" {...register("name")} defaultValue={displayName} />
 

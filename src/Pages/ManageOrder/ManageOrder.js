@@ -31,7 +31,7 @@ const ManageOrder = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedcount > 0) {
-                    alert('updated successfully')
+                    swal("Yesss!", "Your orded have been approved!", "success");
                     setManageOrders({});
                 }
             })

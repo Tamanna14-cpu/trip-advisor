@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './AddService.css';
+import swal from 'sweetalert';
 
 
 
@@ -16,7 +17,7 @@ const AddService = () => {
         axios.post('https://safe-island-53802.herokuapp.com/addService', data)
             .then(res => {
                 if (res.data.insertedId) {
-
+                    swal("Great job!", "You have added a service!", "success");
                     reset();
                 }
             })
