@@ -20,6 +20,7 @@ const ManageOrder = () => {
     // for update status
     const handlePending = (id) => {
         // console.log(id);
+        swal("Yesss!", "Your orded have been approved!", "success");
 
         fetch(`https://safe-island-53802.herokuapp.com/manageOrders/${id}`, {
             method: 'PUT',
@@ -31,7 +32,7 @@ const ManageOrder = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedcount > 0) {
-                    swal("Yesss!", "Your orded have been approved!", "success");
+
                     setManageOrders({});
                 }
             })
@@ -42,6 +43,7 @@ const ManageOrder = () => {
     // for delete
     const handleDeleteProduct = (id) => {
         // console.log(id);
+        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
         fetch(`https://safe-island-53802.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
@@ -49,7 +51,7 @@ const ManageOrder = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.deletedCount) {
-                    swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
+
                     const remainingUsers = manageOrders.filter(order => order._id !== id);
                     setManageOrders(remainingUsers);
                     setIsDelete(true);

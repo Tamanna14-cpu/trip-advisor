@@ -32,7 +32,7 @@ const Header = () => {
     return (
         <>
             {user?.email ?
-                <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar">
+                <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar shadow-sm">
                     <Container>
                         <Navbar.Brand as={Link} to="/home">
                             <img src={logoImg} alt="" />
@@ -70,7 +70,7 @@ const Header = () => {
 
                 :
 
-                <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar">
+                <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar shadow-sm">
                     <Container>
                         <Navbar.Brand as={Link} to="/home">
                             <img src={logoImg} alt="" />

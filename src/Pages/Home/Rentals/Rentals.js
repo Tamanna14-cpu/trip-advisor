@@ -17,7 +17,7 @@ const Rentals = () => {
 
 
     return (
-        <Container>
+        <Container className="py-4">
             <Row className="g-4 my-5 pb-5">
 
                 <Col xs={12} md={4}>

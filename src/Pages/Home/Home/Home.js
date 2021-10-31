@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Banner from '../Banner/Banner';
-import DiscoverHome from '../DiscoverHome/DiscoverHome';
+import ContactUs from '../ContactUs/ContactUs';
 import Rentals from '../Rentals/Rentals';
 import Services from '../Services/Services';
 
@@ -11,7 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <Services></Services>
             <Rentals></Rentals>
-            <DiscoverHome></DiscoverHome>
+            <ContactUs></ContactUs>
         </Container>
     );
 };

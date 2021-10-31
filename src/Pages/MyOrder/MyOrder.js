@@ -23,6 +23,7 @@ const MyOrder = () => {
 
     const handleDeleteProduct = (id) => {
         // console.log(id);
+        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
         fetch(`https://safe-island-53802.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
@@ -31,7 +32,6 @@ const MyOrder = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.deletedCount) {
-                    swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
                     setIsDelete(true);
                 } else {
                     setIsDelete(false);
