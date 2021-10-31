@@ -54,8 +54,9 @@ const ManageOrder = () => {
 
 
             <div className="all-products mt-5">
-                <div className="row container text-center">
-                    <Zoom>
+                <Zoom>
+                    <div className="row container text-center">
+
                         {manageOrders?.map((pd) => (
                             <div key={pd._id} className="col-md-6 col-lg-4">
                                 <div className=" border border p-2 m-2">
@@ -67,9 +68,10 @@ const ManageOrder = () => {
                                 </div>
                             </div>
                         ))}
-                    </Zoom>
 
-                </div>
+
+                    </div>
+                </Zoom>
             </div>
         </Container>
     );
