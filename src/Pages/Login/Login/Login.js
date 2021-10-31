@@ -50,9 +50,14 @@ const Login = () => {
 
         <Container>
             <div className="login">
+                <h4 className="fw-bold pb-5">At First <span className="new-service fs-2 mx-2">Login</span> to Our Site!</h4>
                 <button onClick={handleGoogleLogin} className="btn btn-outline-secondary btn-lg py-3 mb-4" type="submit"><i className="fab fa-google me-3"></i>Sign In with Google</button>
                 <br />
                 <button onClick={handleGithubLogin} className="btn btn-outline-secondary btn-lg py-3" type="submit"><i className="fab fa-github me-3"></i>Sign In with Github</button>
+                <br />
+
+                <input type="checkbox" id="terms" className="mt-4 me-1" />
+                <label for="terms" className="text-muted"> Agree with the terms & condition of our site. We won't use your information with others.</label>
             </div>
         </Container>
 

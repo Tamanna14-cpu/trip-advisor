@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import swal from 'sweetalert';
 import useAuth from '../../Hooks/useAuth';
+import Zoom from 'react-reveal/Zoom';
 
 const MyOrder = () => {
 
@@ -42,21 +43,24 @@ const MyOrder = () => {
 
     return (
         <Container className="mt-5">
-            <h1>Total Orders : {orders.length}</h1>
+            <h1>Your Booked Service : {orders.length}</h1>
 
 
             <div className="all-products mt-5">
                 <div className="row container text-center">
-                    {orders?.map((pd) => (
-                        <div key={pd._id} className="col-md-6 col-lg-4">
-                            <div className=" border border p-2 m-2">
-                                <h5>{pd.title}</h5>
-                                <h6>{pd.price}</h6>
-                                <p>{pd.email}</p>
-                                <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
+                    <Zoom>
+                        {orders?.map((pd) => (
+                            <div key={pd._id} className="col-md-6 col-lg-4">
+                                <div className=" border border p-2 m-2">
+                                    <h5>{pd.title}</h5>
+                                    <h6>{pd.price}</h6>
+                                    <p>{pd.email}</p>
+                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </Zoom>
+
                 </div>
             </div>
         </Container>

@@ -12,14 +12,13 @@
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  background-position: 70px 100px; 
+  background-position: 50px 100px; 
   background-repeat: no-repeat;
   padding: 1% 8%;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  top: 40%;
   left: 35%;
-  position: absolute;
+  position: static;
   box-shadow: 10px 10px 14px rgba(10, 10, 10, 0.75);
 }
 

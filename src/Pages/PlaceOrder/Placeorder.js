@@ -7,6 +7,9 @@ import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
 import swal from 'sweetalert';
 import './PlaceOrder.css';
+import Fade from 'react-reveal/Fade';
+import Typist from 'react-typist';
+
 
 
 const PlaceOrder = () => {
@@ -61,40 +64,54 @@ const PlaceOrder = () => {
     return (
 
         <Container className="mt-5">
-            <h2 className="py-3">Place Your Order Today</h2>
+            <h2 className="py-3"><Typist cursor={{
+                show: false,
+                blink: true,
+                element: '|',
+                hideWhenDone: false,
+                hideWhenDoneDelay: 1000,
+            }}>
+                Place Your Order Today...
+            </Typist></h2>
 
 
             <Row className="g-4 mt-4">
 
                 <Col xs={12} md={6} className="add-service">
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <Fade left>
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <input {...register("title", { required: true })} placeholder="title" />
-                        <input type="number" {...register("price", { required: true })} placeholder="price" />
+                            <input {...register("title", { required: true })} placeholder="service name" />
+                            <input type="number" {...register("price", { required: true })} placeholder="price" />
 
-                        <input type="text" {...register("name")} defaultValue={displayName} />
+                            <input type="text" {...register("name")} defaultValue={displayName} />
 
-                        <input type="email" {...register("email")} defaultValue={email} />
+                            <input type="email" {...register("email")} defaultValue={email} />
 
-                        <textarea {...register("description")} placeholder="description" />
+                            <textarea {...register("description")} placeholder="description" />
 
-                        <br />
-                        <input type="submit" value="Book Now" />
-                    </form>
+                            <br />
+                            <input type="submit" value="Book Now" />
+                        </form>
+                    </Fade>
 
                 </Col>
 
                 <Col xs={12} md={5}>
-                    <Card className="card-height">
-                        <Card.Img className="placeorder-img" variant="top" src={image} />
-                        <Card.Body>
-                            <Card.Title>{title}</Card.Title>
-                            <Card.Text>
-                                <div>{description}</div>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+
+                    <Fade right>
+                        <Card className="card-height">
+                            <Card.Img className="placeorder-img" variant="top" src={image} />
+                            <Card.Body>
+                                <Card.Title>{title}</Card.Title>
+                                <Card.Text>
+                                    <div className="text-muted">{description}</div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Fade>
+
                 </Col>
             </Row>
         </Container>

@@ -3,6 +3,8 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Services.css';
 import Rating from 'react-rating';
+import Fade from 'react-reveal/Fade';
+
 
 const Services = () => {
 
@@ -11,7 +13,7 @@ const Services = () => {
     useEffect(() => {
         fetch('https://safe-island-53802.herokuapp.com/services')
             .then(res => res.json())
-            .then(data => setServices(data.slice(0, 6)));
+            .then(data => setServices(data));
     }, [])
 
 
@@ -27,33 +29,37 @@ const Services = () => {
 
                 {
                     services.map((service) => <Col key={service._id}>
-                        <Card className="card-height service-card">
-                            <Card.Img variant="top" className="service-img" src={service.image} />
-                            <Card.Body>
 
-                                <Card.Title>
-                                    {service.title}
-                                </Card.Title>
+                        <Fade bottom>
+                            <Card className="card-height service-card">
+                                <Card.Img variant="top" className="service-img" src={service.image} />
+                                <Card.Body>
 
-                                <Card.Text>
-                                    <Rating
-                                        initialRating={service.review}
-                                        readonly
-                                        emptySymbol="far fa-circle"
-                                        fullSymbol="fas fa-circle">
-                                    </Rating>
-                                    <span className="ms-4">{service.review} review</span>
+                                    <Card.Title>
+                                        {service.title}
+                                    </Card.Title>
 
-                                    <br />
-                                    you can book this hotel with a beautiful countryside view!! <br /> <span className="fw-bold">from ${service.fee}/night</span>
-                                </Card.Text>
-                            </Card.Body>
+                                    <Card.Text>
+                                        <Rating
+                                            initialRating={service.review}
+                                            readonly
+                                            emptySymbol="far fa-circle"
+                                            fullSymbol="fas fa-circle">
+                                        </Rating>
+                                        <span className="ms-4">{service.review} review</span>
 
-                            <Link to={`/placeOrder/${service._id}`}>
-                                <button type="button" className="btn btn-outline-secondary service-btn">Book Now</button>
-                            </Link>
+                                        <br />
+                                        you can book this hotel with a beautiful countryside view!! <br /> <span className="fw-bold">from ${service.fee}/night</span>
+                                    </Card.Text>
+                                </Card.Body>
 
-                        </Card>
+                                <Link to={`/placeOrder/${service._id}`}>
+                                    <button type="button" className="btn btn-outline-secondary service-btn">Book Now</button>
+                                </Link>
+
+                            </Card>
+                        </Fade>
+
                     </Col>)
                 }
 

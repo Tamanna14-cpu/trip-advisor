@@ -15,6 +15,7 @@ import AddService from './Pages/AddService/AddService';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import ManageOrder from './Pages/ManageOrder/ManageOrder';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 
 
 function App() {
@@ -23,42 +24,44 @@ function App() {
 
       <AuthProvider>
         <Router>
-          <Header></Header>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
+          <ScrollToTop>
+            <Header></Header>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
 
 
-            <PrivateRoute path="/addService">
-              <AddService></AddService>
-            </PrivateRoute>
+              <PrivateRoute path="/addService">
+                <AddService></AddService>
+              </PrivateRoute>
 
-            <PrivateRoute path="/order">
-              <MyOrder></MyOrder>
-            </PrivateRoute>
+              <PrivateRoute path="/order">
+                <MyOrder></MyOrder>
+              </PrivateRoute>
 
-            <PrivateRoute path="/manage">
-              <ManageOrder></ManageOrder>
-            </PrivateRoute>
+              <PrivateRoute path="/manage">
+                <ManageOrder></ManageOrder>
+              </PrivateRoute>
 
-            <PrivateRoute path="/placeOrder/:serviceId">
-              <PlaceOrder></PlaceOrder>
-            </PrivateRoute>
+              <PrivateRoute path="/placeOrder/:serviceId">
+                <PlaceOrder></PlaceOrder>
+              </PrivateRoute>
 
 
 
-            <Route path="/login">
-              <Login></Login>
-            </Route>
-            <Route path="*">
-              <Notfound></Notfound>
-            </Route>
-          </Switch>
-          <Footer></Footer>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <Route path="*">
+                <Notfound></Notfound>
+              </Route>
+            </Switch>
+            <Footer></Footer>
+          </ScrollToTop>
         </Router>
 
       </AuthProvider>

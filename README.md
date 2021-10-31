@@ -8,7 +8,7 @@ have a look here - https://my-app-bcb15.web.app/
 * React-Bootstrap
 * React Hook Form
 * React-Router
-* React reveal
+* React reveal - for animation
 * React Typist
 * React Rating
 * Sweetalert - for modal

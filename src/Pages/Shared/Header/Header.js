@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Navbar, Button, Nav } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Navbar, Button, Nav, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import './Header.css';
@@ -8,6 +8,27 @@ import logoImg from '../../../images/trip.png';
 
 const Header = () => {
     const { user, logOut } = useAuth();
+
+    // for my orders badge
+    const email = user.email;
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        fetch(`https://safe-island-53802.herokuapp.com/myOrders/${email}`)
+            .then((res) => res.json())
+            .then((data) => setOrders(data));
+    }, [email]);
+
+
+    //for all orders badge
+    const [manageOrders, setManageOrders] = useState([]);
+    useEffect(() => {
+        fetch(`https://safe-island-53802.herokuapp.com/manageOrders`)
+            .then((res) => res.json())
+            .then((data) => setManageOrders(data));
+    }, []);
+
+
+
     return (
         <>
             {user?.email ?
@@ -19,9 +40,20 @@ const Header = () => {
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
 
-                            <Nav.Link as={Link} to="/order" className="font-color"><i className="fas fa-shopping-cart me-2"></i>My orders</Nav.Link>
+                            <Nav.Link as={Link} to="/order" className="font-color position-relative me-2"><i className="fas fa-shopping-cart me-2"></i>My orders
 
-                            <Nav.Link as={Link} to="/manage" className="font-color"><i className="fas fa-tasks me-2"></i>Manage orders</Nav.Link>
+                                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                                    {orders.length}
+                                </Badge>
+
+                            </Nav.Link>
+
+                            <Nav.Link as={Link} to="/manage" className="font-color position-relative me-2"><i className="fas fa-tasks me-2"></i>Manage orders
+                                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                                    {manageOrders.length}
+                                </Badge>
+                            </Nav.Link>
+
                             <Nav.Link as={Link} to="/addService" className="font-color"><i className="fas fa-plus-circle me-2"></i>Add a service</Nav.Link>
 
                             {user?.email ?
