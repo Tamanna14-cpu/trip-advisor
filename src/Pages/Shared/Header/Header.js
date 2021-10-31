@@ -16,7 +16,7 @@ const Header = () => {
         fetch(`https://safe-island-53802.herokuapp.com/myOrders/${email}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
-    }, [email]);
+    }, [orders, email]);
 
 
     //for all orders badge
@@ -25,7 +25,7 @@ const Header = () => {
         fetch(`https://safe-island-53802.herokuapp.com/manageOrders`)
             .then((res) => res.json())
             .then((data) => setManageOrders(data));
-    }, []);
+    }, [manageOrders]);
 
 
 

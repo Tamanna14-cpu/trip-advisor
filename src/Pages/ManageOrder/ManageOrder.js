@@ -13,7 +13,7 @@ const ManageOrder = () => {
         fetch(`https://safe-island-53802.herokuapp.com/manageOrders`)
             .then((res) => res.json())
             .then((data) => setManageOrders(data));
-    }, [isDelete]);
+    }, [manageOrders, isDelete]);
 
 
 
