@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Services.css';
 import Rating from 'react-rating';
 import Fade from 'react-reveal/Fade';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchServicesCollection } from '../../../slices/serviceDataSlice';
 
 
 const Services = () => {
 
-    const [services, setServices] = useState([]);
+    // const [services, setServices] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('https://safe-island-53802.herokuapp.com/services')
+    //         .then(res => res.json())
+    //         .then(data => setServices(data));
+    // }, [])
+
+
+
+    const services = useSelector(state => state.service.services)
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('https://safe-island-53802.herokuapp.com/services')
-            .then(res => res.json())
-            .then(data => setServices(data));
+        dispatch(fetchServicesCollection())
     }, [])
 
 

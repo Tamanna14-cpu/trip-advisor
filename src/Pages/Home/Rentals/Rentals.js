@@ -1,19 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Carousel, Col, Container, Row } from 'react-bootstrap';
 import './Rentals.css';
 import Fade from 'react-reveal/Fade';
 import Typist from 'react-typist';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchRentalsCollection } from '../../../slices/serviceDataSlice';
 
 const Rentals = () => {
 
 
-    const [rentals, setRentals] = useState([]);
+    // const [rentals, setRentals] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('https://safe-island-53802.herokuapp.com/addService')
+    //         .then(res => res.json())
+    //         .then(data => setRentals(data));
+    // }, [])
+
+
+    const rentals = useSelector((state) => state.service.rentals)
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('https://safe-island-53802.herokuapp.com/addService')
-            .then(res => res.json())
-            .then(data => setRentals(data));
+        dispatch(fetchRentalsCollection());
     }, [])
+
+    // console.log(rentals);
 
 
     return (
