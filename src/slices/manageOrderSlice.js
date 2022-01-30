@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     manageOrders: [],
-    isDelete: null,
+    myOrders: [],
 }
 
 export const fetchAllOrders = createAsyncThunk(
@@ -13,6 +13,16 @@ export const fetchAllOrders = createAsyncThunk(
             .then(res => res.json())
         return response
 
+    }
+)
+
+
+export const fetchMyorders = createAsyncThunk(
+    'allOrders/fetchMyOrders',
+    async ({ email }) => {
+        const response = await fetch(`https://safe-island-53802.herokuapp.com/myOrders/${email}`)
+            .then(res => res.json())
+        return response
     }
 )
 
@@ -52,19 +62,27 @@ const manageOrderSlice = createSlice({
     initialState,
     reducers: {
         deleteOrder: (state, { payload }) => {
-            console.log(payload);
-            state.manageOrders = state.manageOrders.filter(order => order._id !== payload.id);
+            state.manageOrders = state.manageOrders.filter(order => order._id !== payload);
+        },
+        deleteMyOrder: (state, { payload }) => {
+            state.myOrders = state.myOrders.filter(order => order._id !== payload);
         },
     },
 
     extraReducers: (builder) => {
         builder.addCase(fetchAllOrders.fulfilled, (state, { payload }) => {
             state.manageOrders = payload;
-        })
+        });
+
+        builder.addCase(fetchMyorders.fulfilled, (state, { payload }) => {
+            state.myOrders = payload;
+        });
     }
+
+
 })
 
 
-export const { deleteOrder } = manageOrderSlice.actions;
+export const { deleteOrder, deleteMyOrder } = manageOrderSlice.actions;
 
 export default manageOrderSlice.reducer;

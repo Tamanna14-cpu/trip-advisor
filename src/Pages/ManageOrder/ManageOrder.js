@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Zoom from 'react-reveal/Zoom';
@@ -25,8 +25,6 @@ const ManageOrder = () => {
 
 
     const manageOrders = useSelector(state => state.orders.manageOrders)
-    const isDelete = useSelector(state => state.orders.isDelete)
-
     const dispatch = useDispatch();
 
     // for showing all orders
@@ -57,7 +55,6 @@ const ManageOrder = () => {
         //         }
         //     })
 
-
         dispatch(updateStatus({ id }))
             .then(data => {
                 if (data.payload.modifiedCount > 0) {
@@ -72,7 +69,7 @@ const ManageOrder = () => {
     // // for delete
     const handleDeleteProduct = (id) => {
         // console.log(id);
-        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
+        // swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
         // fetch(`https://safe-island-53802.herokuapp.com/deleteProduct/${id}`, {
         //     method: "DELETE",
@@ -92,11 +89,24 @@ const ManageOrder = () => {
         dispatch(orderDelete({ id }))
             .then(data => {
                 if (data.payload.deletedCount) {
-                    dispatch(fetchAllOrders());
+                    dispatch(deleteOrder(id));
                 }
             })
-
     };
+
+
+
+    // for using the swal as a windows alert
+    const doContinue = false;
+    const continueOn = () => {
+        return swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to book again",
+            icon: "warning",
+            buttons: ["no", "yes"],
+        })
+    }
+
 
 
     return (
@@ -115,7 +125,14 @@ const ManageOrder = () => {
                                     <h6>{pd.price}</h6>
                                     <p>{pd.email}</p>
                                     <button onClick={() => handlePending(pd._id)} className="btn btn-info m-2">{pd.status}</button>
-                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
+                                    <button onClick={() => {
+                                        if (!doContinue) {
+                                            continueOn()
+                                                .then(result => {
+                                                    handleDeleteProduct(pd._id)
+                                                })
+                                        }
+                                    }} className="btn btn-danger m-2">Delete</button>
                                 </div>
                             </div>
                         ))}
