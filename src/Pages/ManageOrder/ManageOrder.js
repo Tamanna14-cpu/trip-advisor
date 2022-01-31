@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import Zoom from 'react-reveal/Zoom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteOrder, fetchAllOrders, orderDelete, updateStatus } from '../../slices/manageOrderSlice';
+import swal from 'sweetalert';
 
 const ManageOrder = () => {
 
@@ -86,33 +87,40 @@ const ManageOrder = () => {
         //         }
         //     });
 
-        dispatch(orderDelete({ id }))
-            .then(data => {
-                if (data.payload.deletedCount) {
-                    dispatch(deleteOrder(id));
-                }
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(orderDelete({ id }))
+                    .then(data => {
+                        if (data.payload.deletedCount) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'This product has been deleted.',
+                                'success'
+                            )
+
+                            dispatch(deleteOrder(id));
+                        }
+                    })
+            }
+
+        })
     };
 
-
-
-    // for using the swal as a windows alert
-    const doContinue = false;
-    const continueOn = () => {
-        return swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to book again",
-            icon: "warning",
-            buttons: ["no", "yes"],
-        })
-    }
 
 
 
     return (
         <Container className="mt-5">
             <h1>Total Booked Services : {manageOrders.length}</h1>
-
 
             <div className="all-products mt-5">
                 <Zoom>
@@ -125,14 +133,7 @@ const ManageOrder = () => {
                                     <h6>{pd.price}</h6>
                                     <p>{pd.email}</p>
                                     <button onClick={() => handlePending(pd._id)} className="btn btn-info m-2">{pd.status}</button>
-                                    <button onClick={() => {
-                                        if (!doContinue) {
-                                            continueOn()
-                                                .then(result => {
-                                                    handleDeleteProduct(pd._id)
-                                                })
-                                        }
-                                    }} className="btn btn-danger m-2">Delete</button>
+                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
                                 </div>
                             </div>
                         ))}

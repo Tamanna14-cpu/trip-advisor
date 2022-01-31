@@ -5,6 +5,7 @@ import useAuth from '../../Hooks/useAuth';
 import Zoom from 'react-reveal/Zoom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMyorders, deleteMyOrder, orderDelete } from '../../slices/manageOrderSlice';
+import Swal from 'sweetalert2';
 
 const MyOrder = () => {
 
@@ -34,7 +35,7 @@ const MyOrder = () => {
 
     const handleDeleteProduct = (id) => {
         // console.log(id);
-        swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
+        // swal("Are you sure?", "Once deleted, you will not be able to book again", "error");
 
         // fetch(`https://safe-island-53802.herokuapp.com/deleteProduct/${id}`, {
         //     method: "DELETE",
@@ -49,12 +50,33 @@ const MyOrder = () => {
         //         }
         //     });
 
-        dispatch(orderDelete({ id }))
-            .then(data => {
-                if (data.payload.deletedCount) {
-                    dispatch(deleteMyOrder(id));
-                }
-            })
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(orderDelete({ id }))
+                    .then(data => {
+                        if (data.payload.deletedCount) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'This product has been deleted.',
+                                'success'
+                            )
+
+                            dispatch(deleteMyOrder(id));
+                        }
+                    })
+            }
+
+        })
     };
 
 
@@ -73,7 +95,7 @@ const MyOrder = () => {
                                     <h5>{pd.title}</h5>
                                     <h6>{pd.price}</h6>
                                     <p>{pd.email}</p>
-                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">delete</button>
+                                    <button onClick={() => handleDeleteProduct(pd._id)} className="btn btn-danger m-2">Delete</button>
                                 </div>
                             </div>
                         ))}

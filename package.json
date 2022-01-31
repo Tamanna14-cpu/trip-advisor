@@ -22,6 +22,7 @@
     "react-scripts": "4.0.3",
     "react-typist": "^2.0.5",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.3.10",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
